@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Winners Circle Travel — Where Luxury Meets Your Next Escape</title>
+<meta name="description" content="Curated luxury travel, milestone celebrations and group retreats — designed with high-touch, personalized service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070d; --bg2:#0a0f1c; --ink:#f4efe6; --mute:#a9a79f;
+  --gold:#d6b26a; --gold2:#f3dca1; --line:rgba(214,178,106,.22);
+  --glass:rgba(14,19,34,.55);
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+#gl{position:fixed;inset:0;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:2}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:42px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(2.4rem,5.4vw,4.6rem);margin:18px 0 22px}
+em{font-style:italic;color:var(--gold2)}
+p{color:var(--mute)}
+.btn{--p:0;position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 30px;border:1px solid var(--gold);border-radius:100px;font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);overflow:hidden;transition:color .4s,transform .3s;cursor:pointer;background:transparent;font-family:var(--sans)}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,var(--gold),var(--gold2));transform:translateY(101%);transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.btn:hover{color:#1a1305}.btn:hover::before{transform:none}
+.btn.solid{background:linear-gradient(110deg,var(--gold),var(--gold2));color:#1a1305;border-color:transparent}
+.btn.solid::before{background:#fff}
+.btn svg{width:16px;transition:transform .3s}.btn:hover svg{transform:translateX(5px)}
+
+/* preloader */
+.nopre #pre{display:none}
+#pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;transition:opacity .9s .2s,visibility .9s .2s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .mark{text-align:center}
+#pre .mark img{width:min(300px,70vw);height:auto;margin:0 auto;animation:lp 2.2s ease-in-out infinite}
+@keyframes lp{50%{transform:scale(1.04);filter:drop-shadow(0 0 22px rgba(214,178,106,.45))}}
+#pre .bar{width:180px;height:1px;background:var(--line);margin:22px auto 0;position:relative;overflow:hidden}
+#pre .bar i{position:absolute;inset:0;background:var(--gold);transform:translateX(-100%);animation:ld 1.6s ease-in-out infinite}
+@keyframes ld{to{transform:translateX(100%)}}
+
+/* cursor */
+.cur{position:fixed;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--gold);z-index:99;pointer-events:none;mix-blend-mode:difference}
+.cur-r{position:fixed;top:0;left:0;width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;z-index:99;pointer-events:none;transition:width .3s,height .3s,background .3s,opacity .3s}
+.cur-r.hov{width:76px;height:76px;background:rgba(214,178,106,.12)}
+@media(hover:none){.cur,.cur-r{display:none}}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s,padding .4s;padding:22px 0}
+header.s{background:rgba(5,7,13,.72);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);padding:12px 0;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:1.35rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.1}
+.logo img{height:62px;width:auto;display:block;transition:height .4s}
+header.s .logo img{height:48px}
+footer .logo img{height:92px}
+.logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.42em;color:var(--gold)}
+nav ul{display:flex;gap:34px;list-style:none}
+nav a{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .4s}
+nav a:hover::after{transform:scaleX(1);transform-origin:left}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;cursor:pointer;position:relative}
+.burger i,.burger i::before{position:absolute;left:12px;right:12px;height:1px;background:var(--ink);transition:.3s}
+.burger i{top:21px}.burger i::before{content:"";left:0;right:0;top:-6px}
+@media(max-width:900px){
+  .burger{display:block}
+  nav ul{position:fixed;inset:0;background:rgba(5,7,13,.97);flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:.4s}
+  nav ul a{font-size:1rem}
+  body.menu nav ul{opacity:1;visibility:visible}
+  .burger{z-index:60}
+}
+
+/* hero */
+.hero{min-height:100svh;display:flex;align-items:center;padding:140px 0 90px}
+.hero h1{font-size:clamp(3.2rem,8.2vw,8rem);margin:24px 0 28px}
+.hero h1 .l{display:block;overflow:hidden}
+.hero h1 .l span{display:block;transform:translateY(110%)}
+.hero p.lead{max-width:520px;font-size:1.08rem;margin-bottom:40px}
+.hero .cta{display:flex;gap:16px;flex-wrap:wrap}
+.scrollhint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:12px}
+.scrollhint::after{content:"";width:1px;height:48px;background:linear-gradient(var(--gold),transparent);animation:sh 2s infinite}
+@keyframes sh{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hud{position:absolute;right:0;bottom:90px;display:flex;gap:44px}
+.hud div{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--gold2)}
+.hud span{display:block;font-family:var(--sans);font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+@media(max-width:900px){.hud{display:none}.hero{padding-top:120px}}
+
+/* marquee */
+.marq{border-block:1px solid var(--line);background:rgba(5,7,13,.7);backdrop-filter:blur(8px);overflow:hidden;padding:22px 0;white-space:nowrap}
+.marq div{display:inline-flex;gap:60px;animation:mq 38s linear infinite;font-family:var(--serif);font-size:2rem;font-style:italic;color:var(--gold2);padding-right:60px}
+.marq span::after{content:"✦";font-style:normal;font-size:.9rem;margin-left:60px;color:var(--gold)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:130px 0;position:relative}
+.sec-head{max-width:760px}
+
+/* destinations */
+.dest-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;margin-top:70px;perspective:1400px}
+.dest{--rx:0deg;--ry:0deg;position:relative;border:1px solid var(--line);border-radius:22px;padding:38px;min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--glass);backdrop-filter:blur(10px);transform:rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;transition:transform .25s ease-out,border-color .4s}
+.dest:hover{border-color:var(--gold)}
+.dest .bg{position:absolute;inset:-2px;z-index:-1;transition:transform .8s}
+.dest:hover .bg{transform:scale(1.08)}
+.dest::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,7,13,.25) 0,rgba(5,7,13,.15) 35%,rgba(5,7,13,.88) 100%)}
+.dest .glow{position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(243,220,161,.22),transparent 65%);transform:translate(-50%,-50%);left:var(--mx,50%);top:var(--my,50%);opacity:0;transition:opacity .3s;pointer-events:none}
+.dest:hover .glow{opacity:1}
+.dest .num{position:absolute;top:30px;left:38px;font-size:.72rem;letter-spacing:.3em;color:var(--gold);transform:translateZ(40px)}
+.dest .tag{position:absolute;top:26px;right:30px;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;border:1px solid var(--line);padding:6px 14px;border-radius:100px;color:var(--gold2);transform:translateZ(40px)}
+.dest h3{font-size:clamp(2rem,3.4vw,3.2rem);transform:translateZ(60px)}
+.dest p{margin:10px 0 24px;max-width:46ch;transform:translateZ(30px);font-size:.95rem}
+.dest .go{transform:translateZ(50px);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);display:inline-flex;gap:10px;align-items:center}
+.dest .go::after{content:"→";transition:transform .3s}.dest:hover .go::after{transform:translateX(8px)}
+.d1{grid-column:span 7;min-height:520px}.d2{grid-column:span 5;min-height:520px}.d3,.d4{grid-column:span 6}
+.d1 .bg{background:url(greece-santorini.jpg) center 62%/cover,radial-gradient(120% 90% at 80% 10%,#2a6fb3 0,transparent 55%),radial-gradient(90% 80% at 10% 100%,#8a4a2b 0,transparent 55%),#0b1a2e}
+.d2 .bg{background:url(maldives-overwater.jpg) 30% center/cover,radial-gradient(100% 80% at 70% 0,#15a39b 0,transparent 55%),radial-gradient(80% 70% at 0 100%,#1c3b6e 0,transparent 60%),#06232a}
+.d3 .bg{background:url(tanzania.jpg) center 35%/cover,radial-gradient(100% 80% at 90% 0,#d98a2b 0,transparent 55%),radial-gradient(80% 70% at 0 100%,#5b2a14 0,transparent 60%),#1b0f08}
+.d4 .bg{background:url(thailand.jpg) center 45%/cover,radial-gradient(100% 80% at 10% 0,#2f9d6b 0,transparent 55%),radial-gradient(80% 70% at 100% 100%,#6b2f6a 0,transparent 60%),#0a1a14}
+@media(max-width:900px){.d1,.d2,.d3,.d4{grid-column:span 12;min-height:380px}}
+
+/* experiences */
+.exp{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:70px}
+.exp+.exp{margin-top:130px}
+.exp.rev .txt{order:2}
+.exp .txt h3{font-size:clamp(2rem,4vw,3.4rem);margin:16px 0 20px}
+.exp .txt p{margin-bottom:16px}
+.exp .btn{margin-top:20px}
+.stage{perspective:1200px;height:480px}
+.stack{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .3s ease-out}
+.panel{position:absolute;border-radius:20px;border:1px solid var(--line);overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.55)}
+.panel.a{inset:8% 22% 8% 0;transform:translateZ(0) rotateY(10deg)}
+.panel.b{inset:22% 0 0 34%;transform:translateZ(90px) rotateY(10deg)}
+.panel.c{width:150px;height:150px;border-radius:50%;left:14%;bottom:2%;transform:translateZ(160px);display:grid;place-items:center;background:var(--glass);backdrop-filter:blur(14px);font-family:var(--serif);text-align:center;font-size:1rem;line-height:1.1;color:var(--gold2);padding:18px}
+.panel.c b{display:block;font-size:2.6rem;font-weight:400}
+.pa1{background:url(group-santorini.jpg) 55% center/cover,#0a1020}
+.pb1{background:url(greece-santorini.jpg) center/cover,#150b05}
+.pa2{background:url(greece-bougainvillea.jpg) center/cover,#0a0a16}
+.pb2{background:url(greece-athens-street.jpg) center/cover,#160610}
+.panel svg{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+@media(max-width:900px){.exp{grid-template-columns:1fr;gap:40px}.exp.rev .txt{order:0}.stage{height:360px}}
+
+/* journey/services */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:70px;perspective:1200px}
+.step{border:1px solid var(--line);border-radius:20px;padding:34px 28px;background:var(--glass);backdrop-filter:blur(10px);transform-style:preserve-3d;transition:transform .25s ease-out,border-color .3s;min-height:290px}
+.step:hover{border-color:var(--gold)}
+.step i{font-style:normal;font-family:var(--serif);font-size:3.6rem;color:transparent;-webkit-text-stroke:1px var(--gold);display:block;line-height:1;margin-bottom:26px;transform:translateZ(50px)}
+.step h4{font-family:var(--serif);font-weight:500;font-size:1.6rem;margin-bottom:10px;transform:translateZ(30px)}
+.step p{font-size:.92rem}
+@media(max-width:1000px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* quote band */
+.band{text-align:center;padding:170px 0}
+.band h2{font-size:clamp(2.6rem,7vw,6.4rem);margin-inline:auto;max-width:15ch}
+.band p{max-width:560px;margin:0 auto 40px;font-size:1.05rem}
+.band .eyebrow::before{display:none}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;margin-top:60px}
+.info{display:grid;gap:26px;align-content:start}
+.info .row{border-bottom:1px solid var(--line);padding-bottom:22px}
+.info small{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px}
+.info a,.info div.v{font-family:var(--serif);font-size:1.7rem;line-height:1.2;word-break:break-word}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 26px;font-size:.92rem;color:var(--mute)}
+.hours b{font-weight:400;color:var(--ink)}
+form{background:var(--glass);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:24px;padding:42px;display:grid;gap:22px}
+.f{position:relative}
+.f input,.f textarea{width:100%;background:none;border:0;border-bottom:1px solid var(--line);padding:18px 0 10px;color:var(--ink);font:inherit;outline:none;transition:border-color .3s;resize:none}
+.f label{position:absolute;left:0;top:18px;color:var(--mute);font-size:.9rem;pointer-events:none;transition:.3s}
+.f input:focus,.f textarea:focus{border-color:var(--gold)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f textarea:focus+label,.f textarea:not(:placeholder-shown)+label{top:-6px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.wa{display:inline-flex;align-items:center;gap:10px;color:var(--gold2);font-size:.85rem;margin-top:6px}
+@media(max-width:900px){.contact{grid-template-columns:1fr;gap:44px}form{padding:28px}}
+
+footer{border-top:1px solid var(--line);background:rgba(5,7,13,.88);backdrop-filter:blur(10px);padding:70px 0 30px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px}
+.foot h5{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:18px}
+.foot ul{list-style:none;display:grid;gap:10px;font-size:.92rem;color:var(--mute)}
+.foot ul a:hover{color:var(--gold2)}
+.sub{display:flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;margin-top:18px;max-width:380px}
+.sub input{flex:1;background:none;border:0;padding:14px 22px;color:var(--ink);font:inherit;outline:none;min-width:0}
+.sub button{border:0;background:var(--gold);color:#1a1305;padding:0 24px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-family:var(--sans);font-weight:500}
+.copy{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px;font-size:.78rem;color:var(--mute)}
+.copy span:nth-child(2){text-align:center}.copy span:nth-child(3){text-align:right}.copy b{font-weight:500;color:var(--gold2)}
+@media(max-width:800px){.copy{grid-template-columns:1fr;text-align:center}.copy span:nth-child(3){text-align:center}}
+@media(max-width:800px){.foot{grid-template-columns:1fr}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(46px)}
+.dest-label{position:fixed;right:34px;top:50%;transform:translateY(-50%);z-index:40;writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);pointer-events:none;transition:opacity .5s}
+@media(max-width:900px){.dest-label{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.rv,.hero h1 .l span{opacity:1!important;transform:none!important}}
+</style>
+<script>try{if(sessionStorage.getItem('wcpre'))document.documentElement.classList.add('nopre')}catch(e){}</script>
+</head>
+<body>
+
+<div id="pre"><div class="mark"><img src="logo.png" alt="Winners Circle Travel"><div class="bar"><i></i></div></div></div>
+<div class="cur"></div><div class="cur-r"></div>
+<canvas id="gl"></canvas>
+<div class="dest-label" id="lbl">Dallas · Home Base</div>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Winners Circle Travel"><img src="logo.png" alt="Winners Circle Travel"></a>
+    <nav>
+      <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="burger" id="bg" aria-label="Menu"><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" data-focus="home">
+    <div class="wrap" style="position:relative;width:min(1240px,100% - 48px)">
+      <span class="eyebrow">Curated Luxury Travel</span>
+      <h1>
+        <span class="l"><span>Where luxury</span></span>
+        <span class="l"><span>meets your <em>next</em></span></span>
+        <span class="l"><span><em>escape.</em></span></span>
+      </h1>
+      <p class="lead rv">Winners Circle Travel designs high-touch vacations, milestone celebrations, corporate incentive retreats and group experiences for travelers who value luxury, convenience and personalized service.</p>
+      <div class="cta rv">
+        <a class="btn solid" href="https://www.cognitoforms.com/WinnersCircleTravel1/WCTWebsiteRetreatDiscoveryForm" target="_blank" rel="noopener">Book a Discovery Call <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></a>
+        <a class="btn" href="#destinations">Explore Destinations</a>
+      </div>
+      <div class="hud rv"><div>4<span>Signature Escapes</span></div><div>1:1<span>Personal Concierge</span></div><div>24/7<span>Trip Support</span></div></div>
+    </div>
+    <div class="scrollhint">Scroll</div>
+  </section>
+
+  <div class="marq"><div>
+    <span>Santorini Sunsets</span><span>Maldivian Overwater Villas</span><span>Tanzania Safaris</span><span>Thai Islands</span><span>Private Group Retreats</span><span>Milestone Celebrations</span>
+    <span>Santorini Sunsets</span><span>Maldivian Overwater Villas</span><span>Tanzania Safaris</span><span>Thai Islands</span><span>Private Group Retreats</span><span>Milestone Celebrations</span>
+  </div></div>
+
+  <section id="destinations">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Destinations</span>
+        <h2>Explore a <em>different</em> way to travel</h2>
+        <p>Spin the globe behind you — every journey is tailored around your travel style, from first flight to final farewell.</p>
+      </div>
+      <div class="dest-grid">
+        <a class="dest d1 tilt rv" data-focus="greece" href="https://www.cognitoforms.com/winnerscircletravel1/letsgetawayinternationalvacayconsultation" target="_blank" rel="noopener">
+          <div class="bg"></div><div class="glow"></div><span class="num">01</span><span class="tag">Europe</span>
+          <h3>Luxury Greece Travel</h3>
+          <p>Santorini sunsets and Mykonos beaches, private tours, luxury accommodations, fine dining and island-hopping — every detail of your Greek escape, curated.</p>
+          <span class="go">Start Planning Greece</span>
+        </a>
+        <a class="dest d2 tilt rv" data-focus="maldives" href="https://www.cognitoforms.com/winnerscircletravel1/startmymaldivesexperience" target="_blank" rel="noopener">
+          <div class="bg"></div><div class="glow"></div><span class="num">02</span><span class="tag">Indian Ocean</span>
+          <h3>Maldives</h3>
+          <p>Overwater serenity, turquoise lagoons and barefoot luxury.</p>
+          <span class="go">Start My Maldives Experience</span>
+        </a>
+        <a class="dest d3 tilt rv" data-focus="tanzania" href="https://www.cognitoforms.com/winnerscircletravel1/letsgetawayinternationalvacayconsultation" target="_blank" rel="noopener">
+          <div class="bg"></div><div class="glow"></div><span class="num">03</span><span class="tag">Africa</span>
+          <h3>Tanzania</h3>
+          <p>Golden savannas, the great migration and sunrise game drives.</p>
+          <span class="go">Book Africa</span>
+        </a>
+        <a class="dest d4 tilt rv" data-focus="thailand" href="https://www.cognitoforms.com/winnerscircletravel1/letsgetawayinternationalvacayconsultation" target="_blank" rel="noopener">
+          <div class="bg"></div><div class="glow"></div><span class="num">04</span><span class="tag">Asia</span>
+          <h3>Thailand</h3>
+          <p>Temples, tropical islands and world-class hospitality.</p>
+          <span class="go">Book Asia</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiences" data-focus="group">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Ready to elevate your</span>
+        <h2>Vacation <em>experience</em></h2>
+      </div>
+
+      <div class="exp">
+        <div class="txt rv">
+          <span class="eyebrow">Group Travel</span>
+          <h3>Curated Group <em>Retreats</em></h3>
+          <p>Winners Circle Travel plans customized group retreats for entrepreneurs, coaches, organizations, community leaders, content creators and private groups. From luxury accommodations and transportation to private events, dining, excursions and guest coordination, every detail is managed with care.</p>
+          <p>Wellness retreat, mastermind, women's getaway, client community trip or luxury group escape — tailored to your vision, audience and goals.</p>
+          <a class="btn" href="https://www.cognitoforms.com/WinnersCircleTravel1/WCTWebsiteRetreatDiscoveryForm" target="_blank" rel="noopener">Book a Retreat Discovery Call</a>
+        </div>
+        <div class="stage rv"><div class="stack tilt3d">
+          <div class="panel a pa1"></div>
+          <div class="panel b pb1"></div>
+          <div class="panel c"><div><b>50+</b>guests,<br>one vision</div></div>
+        </div></div>
+      </div>
+
+      <div class="exp rev" data-focus="celebrate">
+        <div class="txt rv">
+          <span class="eyebrow">Celebrations</span>
+          <h3>Milestone <em>Celebration</em> Groups</h3>
+          <p>Celebrate life's biggest moments with a luxury group experience designed around you. We curate unforgettable milestone birthdays, anniversaries, retirements, reunions and private celebrations — with customized accommodations, transportation, events, excursions and guest coordination.</p>
+          <p>A seamless travel experience that lets you enjoy the moment while we handle the planning.</p>
+          <a class="btn" href="https://www.cognitoforms.com/WinnersCircleTravel1/WCTWebsiteCelebrationIntakeForm" target="_blank" rel="noopener">Start Planning Your Celebration</a>
+        </div>
+        <div class="stage rv"><div class="stack tilt3d">
+          <div class="panel a pa2"></div>
+          <div class="panel b pb2"></div>
+          <div class="panel c"><div><b>∞</b>memories<br>made</div></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">The Experience</span>
+        <h2>Seamless from <em>start</em> to landing</h2>
+      </div>
+      <div class="steps">
+        <div class="step tilt rv"><i>01</i><h4>Discover</h4><p>A discovery call to understand your style, group, goals and dream destination.</p></div>
+        <div class="step tilt rv"><i>02</i><h4>Design</h4><p>A bespoke itinerary — stays, transfers, dining and excursions — crafted around you.</p></div>
+        <div class="step tilt rv"><i>03</i><h4>Coordinate</h4><p>We manage bookings, guests and logistics so nothing is left to chance.</p></div>
+        <div class="step tilt rv"><i>04</i><h4>Enjoy</h4><p>Travel with confidence, backed by personal, responsive support the whole way.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" data-focus="home">
+    <div class="wrap">
+      <span class="eyebrow rv">Request a Vacation Quote</span>
+      <h2 class="rv">Ready to start <em>planning?</em></h2>
+      <p class="rv">Whether you're dreaming of a personalized luxury vacation, celebrating a milestone with family and friends, or hosting a curated group retreat — your next extraordinary journey starts here.</p>
+      <a class="btn solid rv" href="https://www.cognitoforms.com/WinnersCircleTravel1/WCTWebsiteComplimentaryTravelQuote" target="_blank" rel="noopener">Plan a Luxury Vacation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h18m-6-6 6 6-6 6"/></svg></a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Contact Us</span>
+        <h2>We'd love to <em>hear</em> from you</h2>
+        <p>Have a question about our services? Reach out — we respond quickly.</p>
+      </div>
+      <div class="contact">
+        <div class="info rv">
+          <div class="row"><small>Phone</small><a href="tel:+19728184242">972-818-4242</a></div>
+          <div class="row"><small>Email</small><a href="mailto:info@winnerscircletravelagency.net">info@winnerscircletravelagency.net</a></div>
+          <div class="row"><small>Hours</small>
+            <div class="hours"><b>Monday</b><span>10:00 am – 8:00 pm</span><b>Tue – Fri</b><span>9:00 am – 6:00 pm</span><b>Saturday</b><span>10:00 am – 2:00 pm</span><b>Sunday</b><span>Closed</span></div>
+          </div>
+          <a class="wa" href="https://wa.me/13147611177" target="_blank" rel="noopener">● Message us on WhatsApp</a>
+        </div>
+        <form class="rv" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we\'ll be in touch';">
+          <div class="f"><input id="n" placeholder=" " required><label for="n">Your name</label></div>
+          <div class="f"><input id="e" type="email" placeholder=" " required><label for="e">Email address</label></div>
+          <div class="f"><textarea id="m" rows="4" placeholder=" " required></textarea><label for="m">Tell us about your dream trip</label></div>
+          <button class="btn solid" type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#top" class="logo" aria-label="Winners Circle Travel"><img src="logo.png" alt="Winners Circle Travel"></a>
+        <p style="margin-top:20px;max-width:38ch;font-size:.92rem">Personalized service and quick customer care — so you can make the most out of every journey.</p>
+        <h5 style="margin-top:28px">Subscribe</h5>
+        <p style="font-size:.88rem">Don't miss our future updates.</p>
+        <form class="sub" style="padding:0;border-radius:100px;display:flex;gap:0" onsubmit="event.preventDefault();this.querySelector('button').textContent='Subscribed ✓'"><input type="email" placeholder="Email address" required><button>Join</button></form>
+      </div>
+      <div><h5>Quick Links</h5><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://winnerscircletravelagency.net/shop-vacation-packages/">Shop Vacation Packages</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="about.html">About Us</a></li></ul></div>
+      <div><h5>Connect</h5><ul>
+        <li><a href="tel:+19728184242">972-818-4242</a></li>
+        <li><a href="mailto:info@winnerscircletravelagency.net">info@winnerscircletravelagency.net</a></li>
+        <li><a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li></ul></div>
+    </div>
+    <div class="copy"><span>© 2026 Winner's Circle Travel Agency — All Rights Reserved.</span><span>Privacy Policy · Terms &amp; Conditions · FAQ</span><span>Designed &amp; Developed by <b>Muhammad Saud Javed</b></span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+const isMobile = () => innerWidth < 900;
+
+/* ---------- 3D SCENE ---------- */
+const canvas = document.getElementById('gl');
+let renderer, scene, camera, globe, dotsMat, markers = {}, planes = [], stars;
+const R = 2;
+const ll = (lat, lon, r=R) => {
+  const phi = (90-lat)*Math.PI/180, th = (lon+180)*Math.PI/180;
+  return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(th), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(th));
+};
+const PLACES = {
+  home:     {lat:32.78, lon:-96.8,  label:'Dallas · Home Base'},
+  greece:   {lat:36.4,  lon:25.4,   label:'Santorini · Greece'},
+  maldives: {lat:3.2,   lon:73.2,   label:'Maldives'},
+  tanzania: {lat:-6.4,  lon:34.9,   label:'Tanzania'},
+  thailand: {lat:12.9,  lon:100.9,  label:'Thailand'},
+  group:    {lat:20,    lon:-30,    label:'Group Retreats · Worldwide'},
+  celebrate:{lat:25,    lon:-75,    label:'Celebrations · Worldwide'}
+};
+
+try{
+  renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(40, innerWidth/innerHeight, .1, 100);
+  camera.position.set(0,0,9);
+
+  globe = new THREE.Group(); scene.add(globe);
+
+  // core sphere
+  globe.add(new THREE.Mesh(new THREE.SphereGeometry(R*.985,64,64),
+    new THREE.MeshBasicMaterial({color:0x070b16})));
+  // atmosphere
+  const atm = new THREE.Mesh(new THREE.SphereGeometry(R*1.18,64,64), new THREE.ShaderMaterial({
+    transparent:true, side:THREE.BackSide, blending:THREE.AdditiveBlending, depthWrite:false,
+    vertexShader:'varying vec3 n;void main(){n=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
+    fragmentShader:'varying vec3 n;void main(){float i=pow(.62-dot(n,vec3(0,0,1.)),3.);gl_FragColor=vec4(.84,.69,.42,1.)*i;}'
+  }));
+  scene.add(atm); atm.userData.fixed = true; globe.userData.atm = atm;
+
+  // latitude/longitude graticule
+  const gm = new THREE.LineBasicMaterial({color:0xd6b26a, transparent:true, opacity:.07});
+  for(let lat=-60; lat<=60; lat+=30){ const p=[]; for(let lo=0;lo<=360;lo+=4) p.push(ll(lat,lo-180,R*1.001)); globe.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(p),gm)); }
+  for(let lo=0; lo<360; lo+=30){ const p=[]; for(let la=-90;la<=90;la+=4) p.push(ll(la,lo-180,R*1.001)); globe.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(p),gm)); }
+
+  // dotted land (sampled from a world map; falls back to uniform dots)
+  dotsMat = new THREE.PointsMaterial({color:0xd6b26a, size:.026, transparent:true, opacity:.85, sizeAttenuation:true, depthWrite:false});
+  function buildDots(mask){
+    const pts=[]; const N=26000, ga=Math.PI*(3-Math.sqrt(5));
+    for(let i=0;i<N;i++){
+      const y=1-(i/(N-1))*2, rr=Math.sqrt(1-y*y), t=ga*i;
+      const v=new THREE.Vector3(Math.cos(t)*rr*R, y*R, Math.sin(t)*rr*R);
+      if(mask){
+        const lat=Math.asin(y)*180/Math.PI;
+        // invert ll(): th = atan2(z,-x)
+        let th=Math.atan2(v.z,-v.x); if(th<0) th+=2*Math.PI;
+        const lon=th*180/Math.PI-180;
+        if(!mask(lat,lon)) continue;
+      }
+      pts.push(v.x,v.y,v.z);
+    }
+    const g=new THREE.BufferGeometry(); g.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));
+    globe.add(new THREE.Points(g,dotsMat));
+  }
+  const img=new Image(); img.crossOrigin='anonymous';
+  img.onload=()=>{
+    try{
+      const c=document.createElement('canvas'); c.width=720; c.height=360;
+      const x=c.getContext('2d'); x.drawImage(img,0,0,720,360);
+      const d=x.getImageData(0,0,720,360).data; const lum=new Float32Array(720*360); let sum=0;
+      for(let i=0;i<lum.length;i++){lum[i]=(d[i*4]+d[i*4+1]+d[i*4+2])/3; sum+=lum[i];}
+      const mean=sum/lum.length; let above=0; for(let i=0;i<lum.length;i++) if(lum[i]>mean) above++;
+      const landIsBright = above < lum.length/2; // land is the minority class
+      buildDots((lat,lon)=>{
+        const px=Math.min(719,Math.max(0,Math.floor((lon+180)/360*720))), py=Math.min(359,Math.max(0,Math.floor((90-lat)/180*360)));
+        const b=lum[py*720+px]>mean; return landIsBright? b : !b;
+      });
+    }catch(e){buildDots(null)}
+  };
+  img.onerror=()=>buildDots(null);
+  img.src='https://unpkg.com/three-globe@2.31.0/example/img/earth-water.png';
+
+  // markers + arcs from home
+  const home = ll(PLACES.home.lat, PLACES.home.lon);
+  Object.keys(PLACES).forEach(k=>{
+    if(['group','celebrate'].includes(k)) return;
+    const p = ll(PLACES[k].lat, PLACES[k].lon);
+    const m = new THREE.Mesh(new THREE.SphereGeometry(k==='home'?.05:.04,16,16), new THREE.MeshBasicMaterial({color:k==='home'?0xffffff:0xf3dca1}));
+    m.position.copy(p); globe.add(m);
+    const ring = new THREE.Mesh(new THREE.RingGeometry(.06,.07,32), new THREE.MeshBasicMaterial({color:0xf3dca1,transparent:true,opacity:.8,side:THREE.DoubleSide}));
+    ring.position.copy(p.clone().multiplyScalar(1.004)); ring.lookAt(p.clone().multiplyScalar(2)); globe.add(ring);
+    markers[k]={m,ring,p};
+    if(k!=='home'){
+      const mid = home.clone().add(p).multiplyScalar(.5).normalize().multiplyScalar(R*(1.25+home.distanceTo(p)*.12));
+      const curve = new THREE.QuadraticBezierCurve3(home,mid,p);
+      globe.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(80)),
+        new THREE.LineBasicMaterial({color:0xd6b26a,transparent:true,opacity:.35})));
+      const pl = new THREE.Mesh(new THREE.SphereGeometry(.035,12,12), new THREE.MeshBasicMaterial({color:0xffffff}));
+      globe.add(pl); planes.push({mesh:pl,curve,t:Math.random(),speed:.0016+Math.random()*.001});
+    }
+  });
+
+  // starfield
+  const sp=[]; for(let i=0;i<1800;i++){ const r=18+Math.random()*30, a=Math.random()*6.283, b=Math.acos(2*Math.random()-1);
+    sp.push(r*Math.sin(b)*Math.cos(a), r*Math.cos(b), r*Math.sin(b)*Math.sin(a)); }
+  const sg=new THREE.BufferGeometry(); sg.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));
+  stars=new THREE.Points(sg,new THREE.PointsMaterial({color:0xf4efe6,size:.06,transparent:true,opacity:.7}));
+  scene.add(stars);
+
+  // gold dust floating
+  const dp=[]; for(let i=0;i<240;i++) dp.push((Math.random()-.5)*14,(Math.random()-.5)*9,(Math.random()-.5)*6);
+  const dg=new THREE.BufferGeometry(); dg.setAttribute('position',new THREE.Float32BufferAttribute(dp,3));
+  const dust=new THREE.Points(dg,new THREE.PointsMaterial({color:0xd6b26a,size:.03,transparent:true,opacity:.55}));
+  dust.position.z=2; scene.add(dust); globe.userData.dust=dust;
+}catch(e){ console.warn('WebGL unavailable',e); canvas.style.display='none'; }
+
+/* ---------- focus / camera state ---------- */
+let focusKey='home';
+const targetQ = new THREE.Quaternion(), curQ = new THREE.Quaternion();
+const pos = {x:0,y:0,z:9,s:1}, tgt = {x:0,y:0,z:9,s:1};
+const mouse = {x:0,y:0,sx:0,sy:0};
+const lbl = document.getElementById('lbl');
+
+function setFocus(k){
+  if(!PLACES[k]||!globe) return;
+  focusKey=k;
+  const dir = ll(PLACES[k].lat,PLACES[k].lon).normalize();
+  // tilt slightly so the point sits just above center
+  targetQ.setFromUnitVectors(dir, new THREE.Vector3(0,.12,1).normalize());
+  const focusPlace = ['greece','maldives','tanzania','thailand'].includes(k);
+  tgt.s = focusPlace ? 1.18 : 1;
+  tgt.x = isMobile()?0: (k==='group'?2.6 : k==='celebrate'?-2.6 : focusPlace?2.4:2.5);
+  tgt.y = isMobile()?1.2:0;
+  lbl.style.opacity=0; setTimeout(()=>{lbl.textContent=PLACES[k].label; lbl.style.opacity=1},350);
+}
+if(globe){ setFocus('home'); globe.quaternion.copy(targetQ); curQ.copy(targetQ); }
+
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting) setFocus(e.target.dataset.focus); });
+},{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('[data-focus]').forEach(el=>io.observe(el));
+
+let scrollY_=0; addEventListener('scroll',()=>{scrollY_=scrollY; document.getElementById('hd').classList.toggle('s',scrollY>40);},{passive:true});
+addEventListener('mousemove',e=>{ mouse.x=(e.clientX/innerWidth-.5); mouse.y=(e.clientY/innerHeight-.5); });
+
+function resize(){
+  if(!renderer) return;
+  renderer.setSize(innerWidth,innerHeight,false);
+  camera.aspect=innerWidth/innerHeight; camera.updateProjectionMatrix();
+  if(globe) setFocus(focusKey);
+}
+addEventListener('resize',resize); resize();
+
+const clock=new THREE.Clock();
+function loop(){
+  requestAnimationFrame(loop);
+  if(!renderer) return;
+  const t=clock.getElapsedTime();
+  curQ.slerp(targetQ, reduce?1:.045);
+  globe.quaternion.copy(curQ);
+  // slow idle spin around local view axis for life
+  mouse.sx+=(mouse.x-mouse.sx)*.05; mouse.sy+=(mouse.y-mouse.sy)*.05;
+  pos.x+=(tgt.x-pos.x)*.05; pos.y+=(tgt.y-pos.y)*.05; pos.s+=(tgt.s-pos.s)*.05;
+  const sc = pos.s*(isMobile()?.78:1);
+  globe.scale.setScalar(sc);
+  const off = new THREE.Vector3(pos.x*0.72, pos.y, 0);
+  globe.position.copy(off);
+  globe.userData.atm.position.copy(off); globe.userData.atm.scale.setScalar(sc);
+  globe.rotateOnWorldAxis(new THREE.Vector3(0,1,0), mouse.sx*.35);
+  globe.rotateOnWorldAxis(new THREE.Vector3(1,0,0), mouse.sy*.2);
+  camera.position.x = mouse.sx*.6; camera.position.y = -mouse.sy*.4 - scrollY_*.0004;
+  camera.lookAt(0,0,0);
+  stars.rotation.y = t*.008 + scrollY_*.00008; stars.rotation.x = scrollY_*.00004;
+  globe.userData.dust.rotation.y = t*.03; globe.userData.dust.position.y = -scrollY_*.0006;
+  Object.entries(markers).forEach(([k,o])=>{ const s=1+((t*1.2+o.p.x)%1)*1.8; o.ring.scale.setScalar(s); o.ring.material.opacity=.8*(1-((t*1.2+o.p.x)%1)); });
+  planes.forEach(p=>{ p.t=(p.t+p.speed)%1; p.mesh.position.copy(p.curve.getPoint(p.t)); });
+  renderer.render(scene,camera);
+}
+loop();
+
+/* ---------- UI motion ---------- */
+document.getElementById('bg').onclick=()=>document.body.classList.toggle('menu');
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu')));
+
+addEventListener('load',()=>{
+  const first=!document.documentElement.classList.contains('nopre'); try{sessionStorage.setItem('wcpre','1')}catch(e){}
+  setTimeout(()=>{
+    document.getElementById('pre').classList.add('done');
+    if(window.gsap && !reduce){
+      gsap.to('.hero h1 .l span',{y:0,duration:1.4,ease:'expo.out',stagger:.14,delay:.35});
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.rv').forEach((el,i)=>{
+        gsap.to(el,{opacity:1,y:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'},delay:(el.closest('.hero')?.5:0)});
+      });
+    } else {
+      document.querySelectorAll('.rv').forEach(e=>{e.style.opacity=1;e.style.transform='none'});
+      document.querySelectorAll('.hero h1 .l span').forEach(e=>e.style.transform='none');
+    }
+  },first?900:50);
+});
+// safety net if CDN blocked
+setTimeout(()=>{ if(!window.gsap){ document.querySelectorAll('.rv').forEach(e=>{e.style.opacity=1;e.style.transform='none'}); document.querySelectorAll('.hero h1 .l span').forEach(e=>e.style.transform='none'); document.getElementById('pre').classList.add('done'); } },3500);
+
+/* 3D tilt cards */
+document.querySelectorAll('.tilt').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--ry',((x-.5)*14)+'deg'); c.style.setProperty('--rx',((.5-y)*14)+'deg');
+    c.style.setProperty('--mx',(x*100)+'%'); c.style.setProperty('--my',(y*100)+'%');
+    if(!c.classList.contains('dest')) c.style.transform=`rotateX(${(.5-y)*12}deg) rotateY(${(x-.5)*12}deg)`;
+  });
+  c.addEventListener('mouseleave',()=>{ c.style.setProperty('--rx','0deg'); c.style.setProperty('--ry','0deg'); if(!c.classList.contains('dest')) c.style.transform=''; });
+});
+document.querySelectorAll('.tilt3d').forEach(s=>{
+  const st=s.parentElement;
+  st.addEventListener('mousemove',e=>{ const r=st.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5; s.style.transform=`rotateY(${x*-26}deg) rotateX(${y*18}deg)`; });
+  st.addEventListener('mouseleave',()=>s.style.transform='');
+});
+
+/* cursor */
+const cur=document.querySelector('.cur'), cr=document.querySelector('.cur-r'); let cx=0,cy=0,rx=0,ry=0;
+addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY; cur.style.transform=`translate(${cx-5}px,${cy-5}px)`;});
+(function f(){ rx+=(cx-rx)*.15; ry+=(cy-ry)*.15; cr.style.transform=`translate(${rx-22}px,${ry-22}px)`; requestAnimationFrame(f); })();
+document.querySelectorAll('a,button,.tilt').forEach(el=>{ el.addEventListener('mouseenter',()=>cr.classList.add('hov')); el.addEventListener('mouseleave',()=>cr.classList.remove('hov')); });
+})();
+</script>
+</body>
+</html>
